@@ -30,10 +30,12 @@ public class StringAddCalculatorTest {
     @Test
     public void splitAndSum_custom_구분자() throws Exception {
         String str = "//;\n1;2;3";
-        String regex = StringAddCalculator.seperator(str).regex;
-        String text = StringAddCalculator.seperator(str).nums;
+        Text text = new Text(str);
+        String regex = text.regex;
+        String nums = text.nums;
+
         assertThat(regex).isEqualTo(",|:|;");
-        assertThat(text).isEqualTo("1;2;3");
+        assertThat(nums).isEqualTo("1;2;3");
     }
 
     @Test
