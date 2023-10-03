@@ -18,12 +18,4 @@ public class Text {
             this.nums = m.group(2);
         }
     }
-
-    public void setNums(String nums) {
-        this.nums = nums;
-    }
-    public void setRegex(String regex) {
-        this.regex = regex;
-    }
-
 }

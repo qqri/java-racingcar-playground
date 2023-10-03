@@ -8,6 +8,7 @@ public class StringAddCalculator {
         if(checkValidation(str)) return 0;
         Text text = new Text(str);
         List<Integer> nums = makeNumberList(text.nums ,text.regex);
+        checkException(nums);
 
         return sum(nums);
     }
@@ -22,7 +23,15 @@ public class StringAddCalculator {
     static List<Integer> makeNumberList(String str, String regex) {
         return Arrays.stream(str.split(regex))
                 .map(Integer::valueOf)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                ;
     }
 
+    static void checkException(List<Integer> nums) {
+        nums.stream().forEach(i -> negativeException(i));
+    }
+
+    static void negativeException(int i) {
+        if(i < 0) throw new RuntimeException("음수는 올 수 없습니다.");
+    }
 }
