@@ -1,19 +1,21 @@
 package car;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
 
-    public List<Car> cars;
+    public List<Car> carList;
 
-    public void play() {
-        cars.stream()
-                .forEach(c-> c.go());
+    public Cars() {this.carList = new ArrayList<Car>(); }
+    public Cars(String input) {
+        this.carList = makeCarList(input);
     }
 
-    public Cars(String input) {
-        this.cars = makeCarList(input);
+    public void play() {
+        carList.stream()
+                .forEach(c-> c.go());
     }
 
     private List<Car> makeCarList(String input) {
@@ -25,5 +27,18 @@ public class Cars {
 
     }
 
+    public List<Car> winner() {
+        int maxDist = winnerDist();
+        return carList.stream()
+                .filter(c -> (c.distance==maxDist))
+                .collect(Collectors.toList());
+    }
 
+
+    public int winnerDist() {
+        return carList.stream()
+                .mapToInt(i -> i.distance)
+                .max()
+                .getAsInt();
+    }
 }
