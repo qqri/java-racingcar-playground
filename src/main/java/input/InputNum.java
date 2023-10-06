@@ -1,7 +1,7 @@
 package input;
 import java.util.regex.Matcher;
 public class InputNum {
-    int input;
+    public int input;
 
     public InputNum(String text) {
         this.input = makeInput(text);

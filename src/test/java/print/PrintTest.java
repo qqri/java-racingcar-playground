@@ -41,4 +41,11 @@ public class PrintTest {
         assertThat(winnerCars.get(0).name).isEqualTo("test1");
         assertThat(winnerCars.get(1).name).isEqualTo("test2");
     }
+    
+    @Test
+    public void Cars_최종우승자_출력메세지() throws Exception {
+        List<Car> winnerCars = cars.winner();
+        PrintView.winnerPlayPrint(winnerCars);
+        //assertThat(winnerCarsMsg).isEqualTo("test1, test2");
+    }
 }

@@ -1,26 +1,24 @@
 ## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
 ---
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
+### 기능 요구사항
 
----
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
+- 자동차 
+  - 자동차 이름
+    - 이름 제한조건은 5자리. 그 이상은 초과불가
+    - 각 이름은 , 로 구분한다.
+    - 이름이 5자리가 넘어가면 예외를 발생하고 다시 값을 입력받는다. 
+  - 자동차 전진
+    - 생성된 난수가 4 이상이면 전진, 미만이면 전진 안한다. 
+    - 전진 수만큼 '-' 표시
+- 시도 횟수 입력
+  - 시도 횟수 입력 시 숫자이외의 입력값은 예외를 발생시킨다.
+- 출력 
+  - 가장 전진 수 가 많은 우승자 출력
+  - 우승자는 여러명 일 수 있다. 
 
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
+### 개발 요구사항
 
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
-
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+1. TDD 구현
+2. stream 사용
+3. enum 타입 상수 작성
