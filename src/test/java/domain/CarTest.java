@@ -10,28 +10,23 @@ public class CarTest {
     @Test
     public void 이동() throws Exception {
         //given
-        Car car = new Car("pobi"){
-            @Override
-            protected int randomNum() {
-                return 4;
-            }
-        };
+        Car car = new Car("pobi");
         //when
-        car.move();
+        car.move(() -> true);
         //then
         assertThat(car.getPosition()).isEqualTo(1);
     }
     @Test
     public void 정지() throws Exception {
         //given
-        Car car = new Car("crong"){
-            @Override
-            protected int randomNum() {
-                return 3;
-            }
-        };
+        Car car = new Car("crong");
         //when
-        car.move();
+        car.move2(new RandomMovingStrategy(){
+            @Override
+            public boolean movable() {
+                return false;
+            }
+        });
         //then
         assertThat(car.getPosition()).isEqualTo(0);
     }

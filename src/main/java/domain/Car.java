@@ -1,8 +1,10 @@
 package domain;
 
+import java.util.Random;
+
 public class Car {
 
-    private static final int FOWARD_NUM = 4;
+
     private final String name ;
     private int position;
 
@@ -15,14 +17,18 @@ public class Car {
         return position;
     }
 
-    public void move() {
-        if(randomNum() >= FOWARD_NUM) {
+    public void move(MovingStrategy movingStrategy) {
+        if(movingStrategy.movable()) {
             this.position++;
         }
     }
 
-    protected int randomNum() {
-        return (int) Math.random() * 9;
+    public void move2(RandomMovingStrategy randomMovingStrategy) {
+        if(randomMovingStrategy.movable()) {
+            this.position++;
+        }
     }
+
+
 
 }
